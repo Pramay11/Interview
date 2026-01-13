@@ -21,3 +21,5 @@
 
 # To run the playbook, use the command:
 # ansible-playbook os_condition.yml
+
+
