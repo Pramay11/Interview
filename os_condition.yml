@@ -18,3 +18,6 @@
 
 
 #The above Ansible playbook installs Apache web server on Debian-based systems and httpd on RedHat-based systems by checking the OS family using the 'ansible_os_family' variable.
+
+# To run the playbook, use the command:
+# ansible-playbook os_condition.yml 
