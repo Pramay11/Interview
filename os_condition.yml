@@ -1,0 +1,20 @@
+---                                     # Ansible Playbook to install web server based on OS family
+- hosts : all                           # Run on all hosts
+  become: yes
+  tasks:
+    - name: Install Apache on Ubuntu
+      apt: 
+        name: apache2
+        state: present
+      when: ansible_os_family == "Debian"
+      ignore_errors: true   # it tells if this task fails , continue executing the next tasks
+
+    - name: Install httpd on RedHat
+      yum: 
+        name: httpd
+        state: present
+      when: ansible_os_family == "RedHat"
+      ignore_errors: true
+
+
+#The above Ansible playbook installs Apache web server on Debian-based systems and httpd on RedHat-based systems by checking the OS family using the 'ansible_os_family' variable.
