@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: deployment              # Create a deployment
+metadata:
+  name: nginx-deployment      # Name of the deployment
+spec:                         # Desired state of the deployment
+  replicas: 3
+  selector:                   # Manage pod whose label is app: nginx
+    matchLabels:
+      app: nginx
+  template:                   # Pod blueprint
+    metadata:
+      labels:
+        app: nginx
+    spec:                      # Pod specification
+      containers:
+      - name: nginx
+        image: nginx:1.14.2
+        ports:
+        - containerPort: 80
